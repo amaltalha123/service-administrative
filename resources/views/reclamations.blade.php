@@ -83,7 +83,52 @@
     .traiterReclamation:hover{
         background-color:#34ce39;
     }
-</style>
+
+    .repondreReclamation{
+        background-color:#34ce39;
+        padding:5px;
+        border-radius:4px;
+        cursor:pointer;
+    }
+    .repondreReclamation:hover{
+        background-color:#34ce39;
+    }
+    #dialog {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#dialog textarea {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#dialog button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#dialog button:hover {
+    background-color: #0056b3;
+}
+
+ </style>
 
 <body>
     <div class="container">
@@ -171,11 +216,29 @@
                                         <button class="btn btn-success traiterReclamation" data-id="{{ $reclamation->id_reclamation }}">
                                             Traiter
                                         </button>
+                                        <button class="btn btn-success repondreReclamation" 
+        data-id="{{ $reclamation->id_reclamation }}" 
+        onclick="openDialog(this)">Répondre</button>                                        
+                                        <!-- Modal Réponse -->
+                                        
+
                                     </td>
                                 </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    
+<div id="dialog" style="display: none;">
+    <form id="messageRec" action="{{ url('/reponse') }}" method="POST">
+        @csrf
+        <input type="hidden" name="id_reclamation" id="id_reclamation">
+        <textarea name="message" id="message" placeholder="Entrer votre message ici"></textarea>
+        <button type="submit" id="submitmes">Envoyer</button>
+        <button type="button" onclick="closeDialog()">Fermer</button>
+    </form>
+</div>
+
+
                 </div>
             </div>
         </div>
@@ -212,6 +275,31 @@
                 });
             });
         });
+
+
+        // Fonction pour ouvrir le dialogue
+function openDialog(button) {
+    const reclamationId = button.getAttribute('data-id');
+    document.getElementById('id_reclamation').value = reclamationId;
+    document.getElementById('dialog').style.display = 'block';
+}
+
+
+// Fonction pour fermer le dialogue
+function closeDialog() {
+    document.getElementById("dialog").style.display = "none";
+}
+
+// Ajouter un événement pour fermer le dialogue en cliquant à l'extérieur
+window.onclick = function(event) {
+    const dialog = document.getElementById("dialog");
+    if (event.target === dialog) {
+        closeDialog();
+    }
+};
+
+      
+
     </script>
 </body>
 

@@ -31,7 +31,7 @@ Route::get('/demandes', [DemandeController::class, 'index'])->name('demandes');
 //routes des réclamations
 Route::get('/reclam', [ReclamationController::class, 'index'])->name('reclam');
 Route::put('/reclamations/{id}', [ReclamationController::class, 'update']);
-
+Route::post('/reponse', [ReclamationController::class, 'reponse'])->name('repo.reponse');
 
 //routes des historiques
 Route::get('/historique', [HistoriqueController::class, 'index'])->name('historique');

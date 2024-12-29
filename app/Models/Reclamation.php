@@ -20,7 +20,7 @@ class Reclamation extends Model
     public $timestamps = false;
 
     // Déclarez les champs pouvant être mis à jour
-    protected $fillable = ['etat_reclamation'];
+    protected $fillable = ['etat_reclamation','message'];
     public function etudiant()
 {
     return $this->belongsTo(Etudiant::class, 'id_etudiant');

@@ -66,3 +66,17 @@ fetch('/reclamation/store', {
         alert(data.message); // Affiche un message d'erreur
     }
 });
+
+fetch('/reponse', {
+    method: 'POST',
+    body: new FormData(document.querySelector('messageRec'))
+})
+.then(response => response.json())
+.then(data => {
+    if (data.status === 'success') {
+        window.location.href = data.redirect; // Redirige vers le tableau de bord
+    } else {
+        alert(data.message); // Affiche un message d'erreur
+    }
+});
+
