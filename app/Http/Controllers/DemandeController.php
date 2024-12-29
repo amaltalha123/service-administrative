@@ -360,7 +360,7 @@ $pdf->Cell(0, 10, 'Le directeur', 0, 1, 'C');
                 } else {
                     $pdf->Cell(160, 10, 'Aucune donnée disponible pour 2AP1.', 1, 1, 'C');
                 }
-        }elseif(strtolower(trim($demande->niveau_demande)) === '2ap2'){
+        }elseif(strtolower(trim($demande->niveau_demande)) === '2pa2'){
             if (!empty($ap2)) {
                 $columns = $ap2[0];
                 $colonne_vide = false;

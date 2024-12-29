@@ -78,7 +78,13 @@ li i{
                 <li>
                     <a href="{{ route('acceuill') }}">
                         <span class="icon"><i class='bx bx-book-reader'></i></span>
-                        <span class="title">Services des étudiants</span>
+                        <span class="title">S.SERVICES</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('acceuill') }}">
+                        <span class="icon"><i class='bx bx-book-reader'></i></span>
+                        <span class="title">Acceuill</span>
                     </a>
                 </li>
                 <li>

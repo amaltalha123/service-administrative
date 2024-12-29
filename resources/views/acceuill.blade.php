@@ -59,7 +59,7 @@
         <form action="">
           <div class="input__row">
             <div class="input__group">
-              <h5>Ecole Nationa des sciences appliquées</h5>
+              <h5>Ecole National des sciences appliquées</h5>
               <div>
                 <span><i class="ri-map-pin-line"></i></span>
                 <input type="text" placeholder="Tétouan, Maroc" />
