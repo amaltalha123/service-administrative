@@ -84,7 +84,7 @@ tr:hover {
                 
 
                 <div > 
-                <h1>Bienvenue!{{ $email }} </h1>
+                <h1>Bienvenue! {{ $email }} </h1>
              
                
                 </div>

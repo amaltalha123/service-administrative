@@ -7,6 +7,7 @@
       href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
       rel="stylesheet"
     />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
     <title>Web Design Mastery | SoulTravel</title>
   </head>
@@ -30,19 +31,19 @@
     <header class="header__container">
       <div class="header__image">
         <div class="header__image__card header__image__card-1">
-          <span><i class="ri-key-line"></i></span>
+          <span><i class='bx bxs-book-content'></i></span>
           gérer les demandes
         </div>
         <div class="header__image__card header__image__card-2">
-          <span><i class="ri-passport-line"></i></span>
+          <span><i class='bx bx-bell'></i></span>
           gérer les réclamations
         </div>
         <div class="header__image__card header__image__card-3">
-          <span><i class="ri-map-2-line"></i></span>
+          <span><i class='bx bx-download'></i></span>
           déposer une demande
         </div>
         <div class="header__image__card header__image__card-4">
-          <span><i class="ri-guide-line"></i></span>
+          <span><i class='bx bx-bell-plus'></i></span>
           déposer une réclamation
         </div>
         <img src="{{ asset('css/assets/970.png') }}" alt="header" />
