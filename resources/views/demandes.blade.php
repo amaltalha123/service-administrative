@@ -132,7 +132,11 @@ li i{
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
-
+                <div > 
+                <h1>Bienvenue!{{ $nom }} </h1>
+             
+               
+                </div>
             </div>
             <div class="details">
                 <div class="recentOrders">

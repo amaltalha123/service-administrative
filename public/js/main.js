@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function searchTable() {
-  var input, filter, table, tr, td, i, txtValue;
+  var input, filter, table, tr, td, i, j, txtValue;
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
   table = document.querySelector("table");
@@ -47,13 +47,12 @@ function searchTable() {
       td = tr[i].getElementsByTagName("td");
       let found = false;
 
-      // Cherche dans les colonnes "Nom" et "Prénom"
-      for (let j = 0; j < td.length; j++) {
-          if (j === 0 || j === 1) {  // Recherche dans les colonnes Nom (0) et Prénom (1)
-              txtValue = td[j].textContent || td[j].innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  found = true;
-              }
+      // Cherche dans toutes les colonnes
+      for (j = 0; j < td.length; j++) {
+          txtValue = td[j].textContent || td[j].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              found = true;
+              break; // Si le texte est trouvé dans une colonne, on arrête la recherche pour cette ligne
           }
       }
 

@@ -12,7 +12,7 @@ class HistoriqueController extends Controller
 {
     if (Auth::check()) {
         $email = Auth::user()->email;
-
+        $nom=Auth::user()->nom;
         // Vérifie si l'email est vide
         if (empty($email)) {
             return to_route('login')->with('error', 'Veuillez vous reconnecter.');
@@ -51,7 +51,7 @@ class HistoriqueController extends Controller
 
     $results = $query->get();
 
-    return view('historique', compact('results', 'defaultDocuments', 'defaultStates', 'documentTypes', 'states'));
+    return view('historique', compact('results', 'defaultDocuments', 'defaultStates', 'documentTypes', 'states','nom'));
     }else{
         return to_route('login');
     }

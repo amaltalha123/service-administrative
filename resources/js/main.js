@@ -35,34 +35,33 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-    function searchTable() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.querySelector("table");
-        tr = table.getElementsByTagName("tr");
+function searchTable() {
+  var input, filter, table, tr, td, i, j, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.toUpperCase();
+  table = document.querySelector("table");
+  tr = table.getElementsByTagName("tr");
 
-        // Parcourt toutes les lignes du tableau (à partir de la 1ère ligne, qui est l'en-tête)
-        for (i = 1; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td");
-            let found = false;
+  // Parcourt toutes les lignes du tableau (à partir de la 1ère ligne, qui est l'en-tête)
+  for (i = 1; i < tr.length; i++) {
+      td = tr[i].getElementsByTagName("td");
+      let found = false;
 
-            // Cherche dans les colonnes "Nom" et "Prénom"
-            for (let j = 0; j < td.length; j++) {
-                if (j === 0 || j === 1) {  // Recherche dans les colonnes Nom (0) et Prénom (1)
-                    txtValue = td[j].textContent || td[j].innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        found = true;
-                    }
-                }
-            }
+      // Cherche dans toutes les colonnes
+      for (j = 0; j < td.length; j++) {
+          txtValue = td[j].textContent || td[j].innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+              found = true;
+              break; // Si le texte est trouvé dans une colonne, on arrête la recherche pour cette ligne
+          }
+      }
 
-            // Si la ligne contient le texte recherché, elle est affichée, sinon elle est masquée
-            if (found) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
+      // Si la ligne contient le texte recherché, elle est affichée, sinon elle est masquée
+      if (found) {
+          tr[i].style.display = "";
+      } else {
+          tr[i].style.display = "none";
+      }
+  }
+}
 

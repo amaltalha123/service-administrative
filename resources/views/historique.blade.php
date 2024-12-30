@@ -131,6 +131,11 @@ li i{
                         <ion-icon name="search-outline"></ion-icon>
                     </label>
                 </div>
+                <div > 
+                <h1>Bienvenue!{{ $nom }} </h1>
+             
+               
+                </div>
 
             </div>
 
@@ -139,7 +144,6 @@ li i{
                     <div class="cardHeader">
                         <h2>Historique des demandes</h2>
                     </div>
-
                     <!-- Tableau des résultats -->
                     @if($results->isNotEmpty())
                         <table>

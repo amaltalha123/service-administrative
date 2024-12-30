@@ -24,7 +24,7 @@ class DemandeController extends Controller
     {
         if (Auth::check()) {
             $email = Auth::user()->email;
-    
+            $nom = Auth::user()->nom;
             // Vérifie si l'email est vide
             if (empty($email)) {
                 return to_route('login')->with('error', 'Veuillez vous reconnecter.');
@@ -34,7 +34,7 @@ class DemandeController extends Controller
             ->where('etat_demande', 'En cours')
             ->get();
 
-        return view('demandes', compact('demandes'));
+        return view('demandes', compact('demandes','nom'));
         }else{
             return to_route('login');
         }

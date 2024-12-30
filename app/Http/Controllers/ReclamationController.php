@@ -11,7 +11,7 @@ class ReclamationController extends Controller
 {
     if (Auth::check()) {
         $email = Auth::user()->email;
-
+        $nom = Auth::user()->nom;
         // Vérifie si l'email est vide
         if (empty($email)) {
             return to_route('login')->with('error', 'Veuillez vous reconnecter.');
@@ -20,7 +20,7 @@ class ReclamationController extends Controller
         ->with('etudiant')
         ->get();
 
-    return view('reclamations', compact('reclamations'));
+    return view('reclamations', compact('reclamations','nom'));
     }else{
         return to_route('login');
     }
