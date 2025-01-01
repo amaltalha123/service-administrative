@@ -86,8 +86,8 @@ public function reponse(request $request){
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'rr9444037@gmail.com';
-            $mail->Password = 'ectl omzr ogjz moil'; // Utilisez les variables d'environnement dans un vrai projet
+            $mail->Username = '';
+            $mail->Password = ''; // Utilisez les variables d'environnement dans un vrai projet
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
